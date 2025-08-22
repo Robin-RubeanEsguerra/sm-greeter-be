@@ -1,10 +1,22 @@
-import { Request, Response } from "express";
+import express, { Request, Response } from 'express';
+import { ServerResponse } from 'http';
 
-const express = require("express");
 const app = express();
 
-app.get("/", (req: Request, res: Response) => res.send("Express on Vercel"));
+// Define routes
+app.get('/', (_req: Request, res: Response) => {
+  res.send('Hello from Express + Vercel!');
+});
 
-app.listen(3000, () => console.log("Server ready on port 3000."));
+// ✅ Local development: Listen on a port
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`);
+  });
+}
 
-export default app;
+// ✅ Vercel requires a handler function to be exported
+export default (req: Request, res: ServerResponse) => {
+  app(req, res); // Forward the request to the Express app
+};
