@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "rootDir": "src",
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules"]
-}
+    "compilerOptions": {
+      "module": "CommonJS",
+      "target": "ESNext",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "experimentalDecorators": true,   // ✅ Enable legacy decorators
+      "emitDecoratorMetadata": true,    // ✅ Needed for TypeORM reflection
+      "useDefineForClassFields": false, // ✅ Important! Avoid the TC39 field behavior
+    },
+    "include": ["src/**/*.ts"]
+  }

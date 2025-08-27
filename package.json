@@ -1,32 +1,31 @@
 {
   "name": "sm-greeter-be",
   "version": "1.0.0",
-  "description": "api for an sm greeter",
+  "description": "��#\u0000 \u0000s\u0000m\u0000-\u0000g\u0000r\u0000e\u0000e\u0000t\u0000e\u0000r\u0000-\u0000b\u0000e\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/server.ts",
-    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Robin-RubeanEsguerra/sm-greeter-be.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "rubean rakeru esguerra",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Robin-RubeanEsguerra/sm-greeter-be/issues"
   },
   "homepage": "https://github.com/Robin-RubeanEsguerra/sm-greeter-be#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "ts-node-dev": "^2.0.0",
+    "typeorm": "^0.3.26"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "@types/node": "^24.3.0",
-    "@vercel/node": "^5.3.13",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "@types/node": "^24.3.0"
   }
 }
