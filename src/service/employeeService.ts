@@ -14,4 +14,11 @@ export class EmployeeService {
     await this.employeeRepository.save(employee);
     return employee;
   }
+
+  async findByUuid(uuid: string) {
+    const employee = await this.employeeRepository.findOneBy({ employeeUuid:uuid });
+    return employee;
+}
+
+
 }

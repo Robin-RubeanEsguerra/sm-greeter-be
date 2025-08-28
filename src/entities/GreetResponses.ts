@@ -1,32 +1,42 @@
-import { Entity,Column,Index, PrimaryGeneratedColumn, JoinColumn, ManyToOne, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  Index,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from "typeorm";
 import { Employee } from "./Employee";
+import { GreetQuestion } from "./GreetQuestions";
 
 @Entity("greet_responses")
 export class GreetResponses {
-    @PrimaryGeneratedColumn()
-    id:number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ type: "uuid", generated: "uuid", name: "greet_responses_uuid" })
-    @Index()
-    greetResponsesUuid: string;
-    
-    @ManyToOne(() => Employee)
-    @JoinColumn({ name: "employee_id" })
-    employee: Employee;
+  @Column({ type: "uuid", generated: "uuid", name: "greet_responses_uuid" })
+  @Index()
+  greetResponsesUuid: string;
 
-    @Column({name:"question_id"})
-    questionId: number;
+  @ManyToOne(() => Employee)
+  @JoinColumn({ name: "employee_id" })
+  employee: Employee;
 
-    @Column()
-    answer: boolean;
+@ManyToOne(() => GreetQuestion)
+  @JoinColumn({ name: "question_id" })
+  question: GreetQuestion;
 
-    @Column({ type: "date", name: "answered_on" })
-    answeredOn: Date; 
+  @Column()
+  answer: boolean;
 
-    @CreateDateColumn()
-createdAt: Date;
+  @Column({ type: "date", name: "answered_on" })
+  answeredOn: Date;
 
-@UpdateDateColumn()
-updatedAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

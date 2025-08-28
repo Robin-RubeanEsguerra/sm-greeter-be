@@ -20,4 +20,17 @@ export class EmployeeController {
       next(error);
     }
   }
+
+  static async getOne(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { uuid } = req.params;
+      const employee = await EmployeeRepository.findOne(uuid);
+      if (!employee) {
+        return res.status(404).json({ message: "Employee not found" });
+      }
+      res.status(200).json(employee);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
