@@ -10,7 +10,7 @@ AppDataSource.initialize()
   app.use('/public', public_api);
 
   // API Routes
-  app.get("/api/greet", (req: Request, res: Response) => {
+  app.get("/", (req: Request, res: Response) => {
     return res.json({ name: "HELLOW" });
   });
 
