@@ -5,23 +5,22 @@ import { public_api } from "./routes";
 
 const app = express();
 app.use(express.json());
+app.use("/public", public_api);
 
 // API Routes
 app.get("/", (req: Request, res: Response) => {
   return res.json({ name: "be greeter api" });
 });
 
-app.use("/public", public_api);
-
-// if (require.main === module) {
-//   AppDataSource.initialize()
-//     .then(() => {
-//       app.listen(3001, () => {
-//         console.log("Server is running on http://localhost:3001");
-//       });
-//     })
-//     .catch((error) => console.error(error));
-// }
+if (require.main === module) {
+  AppDataSource.initialize()
+    .then(() => {
+      app.listen(3001, () => {
+        console.log("Server is running on http://localhost:3001");
+      });
+    })
+    .catch((error) => console.error(error));
+}
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
