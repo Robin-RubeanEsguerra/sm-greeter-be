@@ -22,6 +22,8 @@ if (require.main === module) {
     })
     .catch((error) => console.error(error));
 }
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 
-// Always export the app for Vercel or testing
 export default app;
