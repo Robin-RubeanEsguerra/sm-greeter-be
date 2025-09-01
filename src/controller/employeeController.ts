@@ -24,7 +24,7 @@ export class EmployeeController {
   static async getOne(req: Request, res: Response, next: NextFunction) {
     try {
       const { uuid } = req.params;
-      const employee = await EmployeeRepository.findOne(uuid);
+      const employee = await EmployeeRepository.findByUuid(uuid);
       if (!employee) {
         return res.status(404).json({ message: "Employee not found" });
       }
