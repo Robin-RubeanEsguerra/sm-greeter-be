@@ -2,9 +2,9 @@
   "name": "sm-greeter-be",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000s\u0000m\u0000-\u0000g\u0000r\u0000e\u0000e\u0000t\u0000e\u0000r\u0000-\u0000b\u0000e\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "main": "App.ts",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/App.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
